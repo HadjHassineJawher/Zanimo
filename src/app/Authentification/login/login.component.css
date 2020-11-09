@@ -1,0 +1,9 @@
+mat-card {
+    padding: 30px;
+    border-radius: 5px;
+    border: none;
+    width: 310px;
+}
+h2 {
+    text-align: center;
+}
