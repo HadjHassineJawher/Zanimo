@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PostsinfoComponent } from 'src/app/Dialogs/postsinfo/postsinfo.component';
 import { Users } from 'src/app/models/Users/users';
 import { UserserviceService } from 'src/app/Services/userservice.service';
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  selector: 'app-comments',
+  templateUrl: './comments.component.html',
+  styleUrls: ['./comments.component.css']
 })
-export class PostsComponent implements OnInit {
+export class CommentsComponent implements OnInit {
 
   constructor(public Userservice: UserserviceService, public dialog: MatDialog) { }
 
@@ -26,10 +25,6 @@ export class PostsComponent implements OnInit {
   getoneuser(User: Users) {
     this.Userservice.getoneuser(User._id);
     console.log(User);
-  }
-
-  opendialogpostsinfo() {
-    this.dialog.open(PostsinfoComponent);
   }
 
 }

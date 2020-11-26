@@ -1,0 +1,47 @@
+<mat-accordion fxLayout="column" fxLayoutGap="5px">
+    <mat-expansion-panel *ngFor="let user of Userservice.User" (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <img class="userimage" src="{{user.imageuser}}" alt="user image">
+                <div fxLayoutAlign="center center">
+                    {{user.nom}} {{user.prenom}}
+                </div>
+
+            </mat-panel-title>
+            <mat-panel-description>
+                <div fxLayoutAlign="center center">
+                    {{user.nom}} {{user.prenom}}'s Comments
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="post" fxLayout="row wrap inline" fxLayoutAlign="center center" fxLayoutGap="10px"
+            *ngFor="let post of user.posts">
+
+            <div fxLayout="column">
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Post's Comments
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div>
+                        <div *ngFor="let comm of post.comments">
+                            {{comm.comment}}
+                            <div fxLayoutGap="10px" fxLayoutAlign="center center"><br>
+                                <button mat-icon-button color="warn">
+                                    <mat-icon>
+                                        delete_outline
+                                    </mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-expansion-panel>
+
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion><br><br>

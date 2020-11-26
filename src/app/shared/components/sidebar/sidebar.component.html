@@ -1,11 +1,10 @@
 <mat-nav-list>
-    <div class="profile">
-        <img src="https://cdn.dribbble.com/users/1077075/screenshots/10945047/media/70cd58ac294ac9e45e55913702df2472.png"
-            alt="User Picture"><br>
+    <div class="profile" *ngFor="let admin of adminservice.Admin">
+        <img src="{{admin.image}}" alt="User Picture"><br>
         <div header>
             <br>
-            <h4>User's Full Name</h4>
-            <h4>User's E-mail Adress </h4>
+            <h4>{{admin.prenom}} {{admin.nom}}</h4>
+            <h4>{{admin.mail}}</h4>
         </div>
     </div>
 
@@ -17,15 +16,19 @@
         <mat-icon>dashboard</mat-icon>
         Dashborad
     </a>
+    <a mat-list-item [routerLink]="['/users']" routerLinkActive="list-item-active">
+        <mat-icon>people</mat-icon>
+        Users
+    </a>
 
     <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active">
         <mat-icon>library_books</mat-icon>
         Posts
     </a>
 
-    <a mat-list-item [routerLink]="['/users']" routerLinkActive="list-item-active">
-        <mat-icon>people</mat-icon>
-        Users
+    <a mat-list-item [routerLink]="['/comments']" routerLinkActive="list-item-active">
+        <mat-icon>comment</mat-icon>
+        Comments
     </a>
 
     <mat-divider></mat-divider>
@@ -34,7 +37,7 @@
 
     <a mat-list-item [routerLink]="['/adminsettings']" routerLinkActive="list-item-active">
         <mat-icon>settings</mat-icon>
-        Admin Settings
+        Settings
     </a>
 
 </mat-nav-list>

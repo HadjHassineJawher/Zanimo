@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DeconnectionComponent } from 'src/app/Dialogs/deconnection/deconnection.component';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +15,11 @@ export class HeaderComponent implements OnInit {
     this.tooglesidebarForMe.emit();
   }
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-
+  opendialog() {
+    this.dialog.open(DeconnectionComponent);
+  }
 }

@@ -4,8 +4,8 @@
 }
 
 img {
-    width: 110px;
-    height: 110px;
+    width: 105px;
+    height: 105px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -15,8 +15,8 @@ mat-icon {
     margin-right: 20px;
 }
 mat-divider {
-    padding: 5px;
-    margin: 5px;
+    padding: 2px;
+    margin: 2px;
 }
 
 .header h2 {

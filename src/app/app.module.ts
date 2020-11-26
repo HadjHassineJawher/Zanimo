@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthentificationModule } from './Authentification/authentification.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
-import { AuthentificationModule } from './Authentification/authentification.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +20,13 @@ import { AuthentificationModule } from './Authentification/authentification.modu
     BrowserAnimationsModule,
     DefaultModule,
     AuthentificationModule,
+    HttpClientModule,
+    BrowserModule,
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

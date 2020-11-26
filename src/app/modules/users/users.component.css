@@ -1,0 +1,48 @@
+.userimage {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 8px;
+}
+mat-card {
+    width: 230px;
+    height: 240px;
+    margin: 10px;
+    padding: 10px;
+}
+.user {
+    text-align: center;
+}
+.add {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 8px;
+    margin-top: 30px;
+}
+.info {
+    margin-top: 30px;
+}
+
+/*.mat-column-nom {
+    text-align: center;
+}
+.mat-column-prenom {
+    text-align: center;
+}
+.mat-column-email {
+    flex: 8%;
+    text-align: center;
+}
+.mat-column-numtel {
+    text-align: center;
+}
+.mat-column-information {
+    text-align: center;
+}
+
+mat-header-cell {
+    color: #3f51b5;
+}*/

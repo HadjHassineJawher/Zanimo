@@ -1,10 +1,10 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
     <mat-toolbar-row>
         <button mat-icon-button (click)="ToogleSidebar()">
             <mat-icon>menu</mat-icon>
         </button>
 
-        <span> Zanimo </span>
+        <span class="zanimo"> Zanimo </span>
 
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
@@ -19,7 +19,7 @@
                             Settings
                         </button>
 
-                        <button mat-menu-item [routerLink]="['/adminlogin']" routerLinkActive="list-item-active">
+                        <button mat-menu-item (click)="opendialog()">
                             <mat-icon> exit_to_app </mat-icon>
                             Sign Out
                         </button>

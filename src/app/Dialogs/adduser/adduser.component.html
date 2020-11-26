@@ -1,0 +1,63 @@
+<div>
+    <div>
+        <div fxLayoutAlign="center center ">
+            <h2> Add New User </h2>
+        </div>
+
+        <form #userform="ngForm" (ngSubmit)="onSubmit(userform)">
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
+                <div class="column">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="Userservice.SelectedUser._id">
+                    <mat-form-field appearance="outline">
+                        <mat-label> Name </mat-label>
+                        <input matInput placeholder="User  Name " name="nom" #nom="ngModel"
+                            [(ngModel)]="Userservice.SelectedUser.nom" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline">
+                        <mat-label> Last Name </mat-label>
+                        <input matInput placeholder="User Last Name " name="prenom" #prenom="ngModel"
+                            [(ngModel)]="Userservice.SelectedUser.prenom" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline">
+                        <mat-label>User Image</mat-label>
+                        <ngx-mat-file-input placeholder="User Image" name="image" #image="ngModel"
+                            [(ngModel)]="Userservice.SelectedUser.imageuser">
+                        </ngx-mat-file-input>
+                        <mat-icon matSuffix color="primary"> add_photo_alternate</mat-icon>
+                    </mat-form-field>
+
+
+                </div>
+
+                <div class="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label> E-Mail </mat-label>
+                        <input matInput placeholder="User E-Mail" name="mail" #mail="ngModel"
+                            [(ngModel)]="Userservice.SelectedUser.mail" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline">
+                        <mat-label> Phone Number </mat-label>
+                        <input matInput placeholder="User Phone Number " name="numtel" #numtel="ngModel"
+                            [(ngModel)]="Userservice.SelectedUser.numtel" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline">
+                        <mat-label> Password </mat-label>
+                        <input matInput placeholder="Your password" name="motdepasse" #motdepasse="ngModel"
+                            [(ngModel)]="Userservice.SelectedUser.motdepasse" />
+                    </mat-form-field><br>
+
+
+                </div>
+            </div>
+            <div fxLayoutAlign="center " fxLayoutGap="10px">
+                <button mat-stroked-button color="warn" type="button" (click)="resetdata(userform)"> Cancel</button>
+                <button mat-stroked-button color="primary" type="submit"> Save </button>
+            </div>
+        </form>
+
+    </div>
+</div>

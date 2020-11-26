@@ -1,1 +1,136 @@
-<p>users works!</p>
+<div fxLayout="row wrap inline" fxLayoutAlign="center" fxLayoutGap="30px">
+    <mat-card>
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+            <div>
+                <img class="add"
+                    src="https://cdn.dribbble.com/users/1355613/screenshots/7120671/media/d187103f38e1280c8cecb614d77ec724.jpg">
+            </div>
+
+            <div fxLayoutGap=" 8px">
+                <button mat-stroked-button color="primary" (click)="opendialognewuser()">Add New User </button>
+            </div>
+        </div>
+    </mat-card>
+
+    <mat-card *ngFor="let user of Userservice.User">
+        <div>
+            <div class="info" fxLayout="column" fxLayoutAlign="center center">
+                <div>
+                    <img class="userimage" src="{{user.imageuser}}" alt="User Image">
+                </div>
+                <div class="user">
+                    <h3>{{user.nom}} {{user.prenom}}</h3>
+                </div>
+                <div fxLayoutGap=" 5px">
+                    <button mat-icon-button color="primary" (click)="opendialoguser(user)">
+                        <mat-icon>
+                            preview
+                        </mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(user._id)">
+                        <mat-icon>
+                            delete_outline
+                        </mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card><br>
+</div><br><br>
+
+<!--<mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="nom">
+        <mat-header-cell *matHeaderCellDef>Nom</mat-header-cell>
+        <mat-cell *matCellDef="let user">
+            <img src="{{user.imageuser}}" alt="UserImage" />
+            {{user.nom}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="prenom">
+        <mat-header-cell *matHeaderCellDef>Prénom</mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.prenom}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>E-Mail</mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.mail}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="numtel">
+        <mat-header-cell *matHeaderCellDef>Numéro</mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.numtel}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="information">
+        <mat-header-cell *matHeaderCellDef>Informations</mat-header-cell>
+        <mat-cell *matCellDef="let user">
+            <button mat-icon-button color="primary" (click)="opendialoguser(user)">
+                <mat-icon>person_search</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<br>
+
+
+<mat-card *ngFor="let user of Userservice.User">
+    <mat-card-header>
+        <img matCardAvatar src="{{user.imageuser}}">
+        <mat-card-title>{{user.nom}}</mat-card-title>
+        <mat-card-subtitle>{{user.prenom}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        {{user.mail}}
+        {{user.numtel}}
+        {{user.motdepasse}}
+    </mat-card-content>
+
+    <mat-card-actions align="start">
+        <button mat-button color="primary" (click)="onAction(event)">Voir Detailles</button>
+        <button mat-button color="primary" (click)="onAction(event)">Banner</button>
+        <button mat-button color="primary" (click)="onAction(event)">Supprimer</button>
+    </mat-card-actions>
+</mat-card>-->
+
+
+
+<!--
+<form #userform="ngForm" (ngSubmit)="onSubmit(userform)">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="Userservice.SelectedUser._id">
+
+    <mat-form-field appearance="outline">
+        <mat-label> nom </mat-label>
+        <input matInput placeholder="Your name" name="nom" #nom="ngModel" [(ngModel)]="Userservice.SelectedUser.nom" />
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label> prenom </mat-label>
+        <input matInput placeholder="Your prenom" name="prenom" #prenom="ngModel"
+            [(ngModel)]="Userservice.SelectedUser.prenom" />
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label> mail </mat-label>
+        <input matInput placeholder="Your mail" name="mail" #mail="ngModel"
+            [(ngModel)]="Userservice.SelectedUser.mail" />
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label> numtel </mat-label>
+        <input matInput placeholder="Your phone" name="numtel" #numtel="ngModel"
+            [(ngModel)]="Userservice.SelectedUser.numtel" />
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label> password </mat-label>
+        <input matInput placeholder="Your password" name="motdepasse" #motdepasse="ngModel"
+            [(ngModel)]="Userservice.SelectedUser.motdepasse" />
+    </mat-form-field><br>
+    <button mat-stroked-button color="warn" type="button" (click)="resetdata(userform)"> Cancel </button>
+    <button mat-stroked-button color="primary" type="submit"> Save </button><br>
+</form>
+-->

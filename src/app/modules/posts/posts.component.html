@@ -1,1 +1,39 @@
-<p>posts works!</p>
+<mat-accordion fxLayout="column" fxLayoutGap="5px">
+    <mat-expansion-panel *ngFor="let user of Userservice.User" (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <img class="userimage" src="{{user.imageuser}}" alt="user image">
+                <div fxLayoutAlign="center center">
+                    {{user.nom}} {{user.prenom}}
+                </div>
+
+            </mat-panel-title>
+            <mat-panel-description>
+                <div fxLayoutAlign="center center">
+                    {{user.nom}} {{user.prenom}}'s Posts
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-card class="post" fxLayout="row wrap inline" fxLayoutAlign="center center" fxLayoutGap="10px"
+            *ngFor="let post of user.posts">
+            <div fxLayout="column">
+                <img class="postimage" src="{{post.image}}"><br>
+                <div>
+                    Type Annonce :{{post.typeAnnonce}}<br>
+                    Type Animal :{{post.typeAnimale}}<br>
+                    Description :{{post.description}}<br>
+                    Date :{{post.date}}<br>
+                </div><br>
+
+                <div fxLayoutGap=" 8px">
+                    <button mat-stroked-button color="accent" (click)="opendialogpostsinfo()">Details</button>
+                    <button mat-stroked-button color="primary">Modifie</button>
+                    <button mat-stroked-button color="warn">Delete</button>
+                </div>
+            </div>
+        </mat-card>
+
+    </mat-expansion-panel>
+</mat-accordion><br><br>
