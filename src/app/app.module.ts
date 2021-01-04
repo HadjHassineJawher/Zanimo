@@ -8,11 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AdminsComponent } from './modules/admins/admins.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    MatTooltipModule
   ],
 
   providers: [],

@@ -11,22 +11,27 @@
     <mat-divider></mat-divider>
 
     <h3 matSubheader fxLayout="row" fxLayoutAlign="center center"> Pages </h3>
-
-    <a mat-list-item [routerLink]="['/']" routerLinkActive="list-item-active">
+    <!--
+    <a mat-list-item [routerLink]="['/']" #tooltip="matTooltip" matTooltip="Dashborard"
+        routerLinkActive="list-item-active">
         <mat-icon>dashboard</mat-icon>
         Dashborad
-    </a>
-    <a mat-list-item [routerLink]="['/users']" routerLinkActive="list-item-active">
+    </a>-->
+    <a mat-list-item [routerLink]="['/Users']" #tooltip="matTooltip" matTooltip="Show Users List"
+        routerLinkActive="list-item-active">
         <mat-icon>people</mat-icon>
         Users
     </a>
 
-    <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active">
+    <a mat-list-item [routerLink]="['/Posts']" #tooltip="matTooltip" matTooltip="Show Posts List"
+        routerLinkActive="list-item-active">
         <mat-icon>library_books</mat-icon>
         Posts
     </a>
 
-    <a mat-list-item [routerLink]="['/comments']" routerLinkActive="list-item-active">
+
+    <a mat-list-item [routerLink]="['/Comments']" #tooltip="matTooltip" matTooltip="Show Comments List"
+        routerLinkActive="list-item-active">
         <mat-icon>comment</mat-icon>
         Comments
     </a>
@@ -35,7 +40,8 @@
 
     <h3 matSubheader fxLayout="row" fxLayoutAlign="center center"> Tools </h3>
 
-    <a mat-list-item [routerLink]="['/adminsettings']" routerLinkActive="list-item-active">
+    <a mat-list-item [routerLink]="['/AdminSettings']" #tooltip="matTooltip" matTooltip="Admin Settings"
+        routerLinkActive="list-item-active">
         <mat-icon>settings</mat-icon>
         Settings
     </a>

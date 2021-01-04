@@ -1,25 +1,26 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="toolbar">
     <mat-toolbar-row>
-        <button mat-icon-button (click)="ToogleSidebar()">
+        <button #tooltip="matTooltip" matTooltip="Toogle SideNav Menu" mat-icon-button (click)="ToogleSidebar()">
             <mat-icon>menu</mat-icon>
         </button>
 
-        <span class="zanimo"> Zanimo </span>
+        <span class="zanimo" #tooltip="matTooltip" matTooltip="Zanimo Logo"> Zanimo </span>
 
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>
-                    <button mat-button [matMenuTriggerFor]="menu">
+                    <button mat-button [matMenuTriggerFor]="menu" #tooltip="matTooltip" matTooltip="Menu">
                         <mat-icon> person </mat-icon>
                     </button>
 
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item [routerLink]="['/adminsettings']" routerLinkActive="list-item-active">
+                        <button mat-menu-item [routerLink]="['/AdminSettings']" #tooltip="matTooltip"
+                            matTooltip="Admin Settings" routerLinkActive="list-item-active">
                             <mat-icon> settings </mat-icon>
                             Settings
                         </button>
 
-                        <button mat-menu-item (click)="opendialog()">
+                        <button mat-menu-item #tooltip="matTooltip" matTooltip="Log Out" (click)="opendialog()">
                             <mat-icon> exit_to_app </mat-icon>
                             Sign Out
                         </button>

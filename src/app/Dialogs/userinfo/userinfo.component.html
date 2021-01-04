@@ -1,3 +1,64 @@
+<div fxLayoutAlign="center center">
+    <h1> User {{User.nom}} {{User.prenom}} 's Information</h1>
+</div><br>
+<div fxLayoutAlign="center center">
+    <div class="box" fxLayoutGap="10px" fxFlex>
+        <form fxLayoutAlign="center center " fxLayoutAlign="stretch" fxLayout="column">
+            <mat-form-field appearance="outline">
+                <mat-label> First Name </mat-label>
+                <input disabled matInput placeholder="User's First Name" value="{{User.nom}}" />
+                <mat-icon matSuffix color="primary">person</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label> Last Name </mat-label>
+                <input disabled matInput placeholder="User's Last Name" value="{{User.prenom}}" />
+                <mat-icon matSuffix color="primary">person</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label> E-mail </mat-label>
+                <input disabled matInput placeholder="User's E-Mail" value="{{User.mail}}" />
+                <mat-icon matSuffix color="primary">mail</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label> Phone Number </mat-label>
+                <input disabled matInput placeholder="User's Phone" value="{{User.numtel}}" />
+                <mat-icon matSuffix color="primary">phone</mat-icon>
+            </mat-form-field>
+            <!--  <mat-form-field appearance="outline">
+                <mat-label> Password </mat-label>
+                <input matInput placeholder="Your name" value="{{User.motdepasse}}"
+                    [type]="hide ? 'password' : 'text'" />
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
+                </button>
+            </mat-form-field>-->
+            <div fxLayoutGap="10px" fxLayoutAlign="center center ">
+                <button mat-icon-button color="warn" #tooltip="matTooltip" matTooltip="Ban this User"
+                    (click)="BanUser(User)">
+                    <mat-icon>
+                        lock
+                    </mat-icon>
+                </button>
+
+                <button mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="UnBan this User"
+                    (click)="UnBanUser(User)">
+                    <mat-icon>
+                        lock_open
+                    </mat-icon>
+                </button>
+
+                <button mat-icon-button color="warn" #tooltip="matTooltip" matTooltip="Remove this User"
+                    (click)="delete(User._id)">
+                    <mat-icon>
+                        person_remove
+                    </mat-icon>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 
 <mat-dialog-content fxFlexFill>
     <div fxLayoutAlign="center center">
         <div fxLayout="row" class="infor" fxLayoutAlign="center">
@@ -13,10 +74,8 @@
                     <h4><span>Password : </span> {{User.motdepasse}}</h4>
                 </div>
                 <div fxLayoutAlign="center center" fxLayoutGap="10px">
-                    <button mat-icon-button color="warn">
-                        <mat-icon>
-                            block
-                        </mat-icon>
+                    <button mat-button color="primary">
+                        Modifie
                     </button>
                 </div>
             </div>
@@ -24,7 +83,7 @@
     </div>
 </mat-dialog-content>
 
-<!--  <div fxLayout="row" fxFlex>
+ <div fxLayout="row" fxFlex>
         <mat-card>
             <div>
                 <form #userform="ngForm" (ngSubmit)="onSubmit(userform)">

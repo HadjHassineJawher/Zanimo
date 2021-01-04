@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from '../../Services/userservice.service';
 import { Users } from '../../models/Users/users';
 
-import { DataSource } from '@angular/cdk/collections';
-import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { UserinfoComponent } from 'src/app/Dialogs/userinfo/userinfo.component';
 import { AdduserComponent } from 'src/app/Dialogs/adduser/adduser.component';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -18,19 +17,22 @@ import { AdduserComponent } from 'src/app/Dialogs/adduser/adduser.component';
 
 export class UsersComponent implements OnInit {
 
-  constructor(public Userservice: UserserviceService, public dialog: MatDialog) { }
+  constructor(public Userservice: UserserviceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.refreshCards()
+    this.refreshCards();
     this.userlist();
   }
-
   /*
-  // data from the userdatasource class
-  dataSource = new UserDataSource(this.Userservice);
-  displayedColumns = ['nom', 'prenom', 'email', 'numtel', 'information'];
+    applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+    }
   */
-
+  /*
+    // data from the userdatasource class
+    dataSource = new UserDataSource(this.Userservice);
+    displayedColumns = ['nom', 'prenom', 'email', 'numtel', 'information'];
+  */
 
   userlist() {
     this.Userservice.getUsers().subscribe((res) => {
@@ -43,8 +45,52 @@ export class UsersComponent implements OnInit {
     console.log(User);
   }
 
+  BanUser(User: Users) {
+    this.Userservice.BanUser(User).subscribe((res) => {
+      this.openSnackBarforbanninguser()
+      this.refreshCards()
+      console.log("User was Banned Successfully");
+    })
+  }
+
+  UnBanUser(User: Users) {
+    this.Userservice.UnBanUser(User).subscribe((res) => {
+      this.openSnackBarforUnbanninguser()
+      this.refreshCards()
+      console.log("User UnBanned Successfully");
+    })
+  }
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  openSnackBarforUnbanninguser() {
+    this._snackBar.open('User Was UnBanned Successfully', 'Close', {
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition
+    });
+  }
+
+  openSnackBarforbanninguser() {
+    this._snackBar.open('User Was Banned Successfully', 'Close', {
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition
+    });
+  }
+
+  openSnackBarfordeleteUser() {
+    this._snackBar.open('User Was Deleted Successfully', 'Close', {
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition
+    });
+  }
+
   delete(_id: String) {
     this.Userservice.deleteUser(_id).subscribe((res) => {
+      this.openSnackBarfordeleteUser()
       this.refreshCards()
     })
   }
@@ -58,7 +104,7 @@ export class UsersComponent implements OnInit {
   opendialoguser(User) {
     console.log(User);
     this.dialog.open(UserinfoComponent, {
-      width: '360px', height: '437px',
+      width: '540px', height: '467px',
       data: {
         User: User
       }
@@ -72,7 +118,8 @@ export class UsersComponent implements OnInit {
   }
 }
 
-// class to bring all users and put them in a mat-table 
+/*
+// class to bring all users and put them in a mat-table
 export class UserDataSource extends DataSource<any>{
   constructor(private Userservice: UserserviceService) {
     super();
@@ -83,4 +130,4 @@ export class UserDataSource extends DataSource<any>{
 
   disconnect() {
   }
-}
+}*/

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { PostsinfoComponent } from 'src/app/Dialogs/postsinfo/postsinfo.component';
 import { Users } from 'src/app/models/Users/users';
 import { UserserviceService } from 'src/app/Services/userservice.service';
@@ -11,7 +12,7 @@ import { UserserviceService } from 'src/app/Services/userservice.service';
 })
 export class PostsComponent implements OnInit {
 
-  constructor(public Userservice: UserserviceService, public dialog: MatDialog) { }
+  constructor(public Userservice: UserserviceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.userlist();
@@ -28,8 +29,30 @@ export class PostsComponent implements OnInit {
     console.log(User);
   }
 
-  opendialogpostsinfo() {
-    this.dialog.open(PostsinfoComponent);
-  }
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+  openSnackBarfordeletepost() {
+    this._snackBar.open('Post Was Deleted Successfully', 'Close', {
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition
+    });
+  }
+  DeletePost(user: Users, postid) {
+    this.Userservice.DeletePost(user, postid).subscribe((res) => {
+      this.openSnackBarfordeletepost();
+      console.log("Posts deleted successfully");
+    })
+  }
+  opendialogpostsinfo(userid, postid) {
+    console.log(userid, postid);
+    this.dialog.open(PostsinfoComponent, {
+      width: '540px', height: '560px',
+      data: {
+        userid: userid,
+        postid: postid
+      }
+    });
+  }
 }

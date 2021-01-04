@@ -23,7 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
@@ -32,6 +32,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AdduserComponent } from 'src/app/Dialogs/adduser/adduser.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     UsersComponent,
     CommentsComponent,
     PostsinfoComponent,
-    AdduserComponent
+    AdduserComponent,
   ],
   imports: [
     CommonModule,
@@ -69,7 +74,13 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     MatDialogModule,
     MatGridListModule,
     MatExpansionModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatPaginatorModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     DeconnectionComponent,

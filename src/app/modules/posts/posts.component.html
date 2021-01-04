@@ -1,39 +1,48 @@
-<mat-accordion fxLayout="column" fxLayoutGap="5px">
-    <mat-expansion-panel *ngFor="let user of Userservice.User" (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <img class="userimage" src="{{user.imageuser}}" alt="user image">
-                <div fxLayoutAlign="center center">
-                    {{user.nom}} {{user.prenom}}
+<!--<div fxLayoutAlign="center">
+    <mat-form-field appearance="outline" #tooltip="matTooltip" matTooltip="Search For a User">
+        <mat-label>Search for a Post</mat-label>
+        <input matInput placeholder="Enter Type of the Animal ">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</div>
+<mat-divider></mat-divider> -->
+<div *ngFor="let user of Userservice.User" fxLayout="row wrap" fxLayoutGap="10px grid">
+    <div *ngFor="let post of user.posts" fxFlex="25" fxFlex.sm="33.3" fxFlex.xs="50">
+        <div>
+            <mat-card class="post">
+                <div fxLayout="row">
+                    <div fxLayout="column">
+                        <img class="postimage" src="{{post.image}}"><br>
+                        <div fxLayoutAlign="center center ">
+                            <div fxLayout="row">
+                                <div fxLayout="column">
+                                    <div class="comment">
+                                        {{post.description}}
+                                    </div>
+                                    <div class="date">
+                                        <h6>{{post.date}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div fxLayoutGap=" 8px" fxLayoutAlign="center ">
+                            <button mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="Show Post Details"
+                                (click)="opendialogpostsinfo(user._id,post._id)">
+                                <mat-icon>
+                                    wysiwyg
+                                </mat-icon>
+                            </button>
+                            <button mat-icon-button color="warn" #tooltip="matTooltip" matTooltip="Delete this Post"
+                                (click)="DeletePost(user,post._id)">
+                                <mat-icon>
+                                    delete_
+                                </mat-icon>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
-            </mat-panel-title>
-            <mat-panel-description>
-                <div fxLayoutAlign="center center">
-                    {{user.nom}} {{user.prenom}}'s Posts
-                </div>
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <mat-card class="post" fxLayout="row wrap inline" fxLayoutAlign="center center" fxLayoutGap="10px"
-            *ngFor="let post of user.posts">
-            <div fxLayout="column">
-                <img class="postimage" src="{{post.image}}"><br>
-                <div>
-                    Type Annonce :{{post.typeAnnonce}}<br>
-                    Type Animal :{{post.typeAnimale}}<br>
-                    Description :{{post.description}}<br>
-                    Date :{{post.date}}<br>
-                </div><br>
-
-                <div fxLayoutGap=" 8px">
-                    <button mat-stroked-button color="accent" (click)="opendialogpostsinfo()">Details</button>
-                    <button mat-stroked-button color="primary">Modifie</button>
-                    <button mat-stroked-button color="warn">Delete</button>
-                </div>
-            </div>
-        </mat-card>
-
-    </mat-expansion-panel>
-</mat-accordion><br><br>
+            </mat-card>
+        </div>
+    </div>
+</div><br><br>

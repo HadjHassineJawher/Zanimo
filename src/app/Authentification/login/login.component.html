@@ -1,24 +1,43 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+<div class="container" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
     <mat-card>
-        <form fxLayoutAlign="stretch" fxLayout="column">
-            <h2> Welcome Back Admin </h2><br>
+        <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="form">
+            <h2> Welcome Back </h2><br>
             <mat-form-field appearance="outline">
                 <mat-label> E-Mail </mat-label>
-                <input matInput placeholder="Your E-mail" />
+                <input [(ngModel)]="LogInInfo.mail" name="mail" formControlName="mail" matInput class="form-control"
+                    id="mail" placeholder="Your E-mail"
+                    [ngClass]="{'is-invalid': form.get('mail').touched && form.get('mail').invalid}" />
             </mat-form-field>
-
+            <div *ngIf="form.get('mail').touched && form.get('mail').invalid" class="invalid_mail">
+                <div *ngIf="form.get('mail').errors.required">
+                    <h5 class="mailrequired">E-mail is Required</h5>
+                </div>
+                <div *ngIf="form.get('mail').errors.email">
+                    <h5 class="mailvalid"> E-mail Must be a valid E-Mail </h5>
+                </div><br>
+            </div>
             <mat-form-field appearance="outline">
                 <mat-label> Password </mat-label>
-                <input matInput placeholder="Your Password" [type]="hide ? 'password' : 'text'" />
+                <input formControlName="password" [(ngModel)]="LogInInfo.motdepasse" name="motdepasse" id="motdepasse"
+                    [ngClass]="{'is-invalid': form.get('password').touched && form.get('password').invalid}" matInput
+                    class="form-control" placeholder="Your Password" [type]="hide ? 'password' : 'text'" />
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
                 </button>
             </mat-form-field>
+            <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid_password">
+                <div *ngIf="form.get('password').errors.required">
+                    <h5 class="passwordrequired">Password is Required</h5>
+                </div>
 
+                <div *ngIf="form.get('password').errors.minlength">
+                    <h5 class="passwordlength">Password Must be at least 6 Charactor</h5>
+                </div><br>
+            </div>
             <div fxLayoutAlign="stretch" fxLayout="column">
-                <button [routerLink]="['/']" routerLinkActive="active" mat-flat-button color="primary" type="submit">
-                    LogIn </button>
+                <button [disabled]="!form.valid" mat-raised-button color="primary" (click)="AdminLogIn()">
+                    Connect </button>
             </div>
 
         </form>

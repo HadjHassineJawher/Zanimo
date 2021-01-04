@@ -26,6 +26,7 @@ mat-card {
     margin-top: 30px;
 }
 
+/* ------------------------- Table Content -------------------------- */
 /*.mat-column-nom {
     text-align: center;
 }
@@ -42,7 +43,18 @@ mat-card {
 .mat-column-information {
     text-align: center;
 }
-
 mat-header-cell {
-    color: #3f51b5;
+    color: #456b91;
+    text-align: center;
+}
+mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+.imageu {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 8px;
 }*/

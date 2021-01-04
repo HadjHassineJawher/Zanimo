@@ -13,7 +13,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatListModule,
     RouterModule,
+    MatTooltipModule
   ],
   exports: [
     HeaderComponent,

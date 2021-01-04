@@ -7,3 +7,21 @@ mat-card {
 h2 {
     text-align: center;
 }
+
+.container {
+    background-color: silver;
+}
+.mailrequired,
+.passwordrequired,
+.passwordlength,
+.mailvalid {
+    color: red;
+}
+
+/*
+div {
+    background-image: url("../../../assets/BackGround.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*/

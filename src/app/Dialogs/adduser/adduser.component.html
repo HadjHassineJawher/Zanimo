@@ -3,7 +3,6 @@
         <div fxLayoutAlign="center center ">
             <h2> Add New User </h2>
         </div>
-
         <form #userform="ngForm" (ngSubmit)="onSubmit(userform)">
             <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
                 <div class="column">
@@ -12,26 +11,7 @@
                         <mat-label> Name </mat-label>
                         <input matInput placeholder="User  Name " name="nom" #nom="ngModel"
                             [(ngModel)]="Userservice.SelectedUser.nom" />
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field appearance="outline">
-                        <mat-label> Last Name </mat-label>
-                        <input matInput placeholder="User Last Name " name="prenom" #prenom="ngModel"
-                            [(ngModel)]="Userservice.SelectedUser.prenom" />
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field appearance="outline">
-                        <mat-label>User Image</mat-label>
-                        <ngx-mat-file-input placeholder="User Image" name="image" #image="ngModel"
-                            [(ngModel)]="Userservice.SelectedUser.imageuser">
-                        </ngx-mat-file-input>
-                        <mat-icon matSuffix color="primary"> add_photo_alternate</mat-icon>
-                    </mat-form-field>
-
-
-                </div>
-
-                <div class="column">
+                    </mat-form-field><br>
                     <mat-form-field appearance="outline">
                         <mat-label> E-Mail </mat-label>
                         <input matInput placeholder="User E-Mail" name="mail" #mail="ngModel"
@@ -43,14 +23,41 @@
                         <input matInput placeholder="User Phone Number " name="numtel" #numtel="ngModel"
                             [(ngModel)]="Userservice.SelectedUser.numtel" />
                     </mat-form-field>
+
+                    <!--   
+                    <mat-form-field appearance="outline">
+                        <mat-label>User Image</mat-label>
+                        <ngx-mat-file-input placeholder="User Image" accept="image/*" name="imageuser"
+                            #imageuser="ngModel" [(ngModel)]="Userservice.SelectedUser.imageuser"
+                            (change)="onFileSelected($event)">
+                        </ngx-mat-file-input>
+                        <mat-icon matSuffix color="primary"> add_photo_alternate</mat-icon>
+                    </mat-form-field>-->
+
+                    <input type="hidden" placeholder="User Image" accept="image/*" name="imageuser" #imageuser="ngModel"
+                        [(ngModel)]="Userservice.SelectedUser.imageuser" />
+                </div>
+
+                <div class="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label> Last Name </mat-label>
+                        <input matInput placeholder="User Last Name " name="prenom" #prenom="ngModel"
+                            [(ngModel)]="Userservice.SelectedUser.prenom" />
+                    </mat-form-field>
                     <br>
                     <mat-form-field appearance="outline">
                         <mat-label> Password </mat-label>
                         <input matInput placeholder="Your password" name="motdepasse" #motdepasse="ngModel"
                             [(ngModel)]="Userservice.SelectedUser.motdepasse" />
                     </mat-form-field><br>
+                    <input type="hidden" name="status" #status="ngModel" [(ngModel)]="Userservice.SelectedUser.status">
 
-
+                    <!-- <mat-checkbox fxLayoutAlign="center center" (change)="onChange($event)" name="status"
+                        #status="ngModel" color="primary" [(ngModel)]="Userservice.SelectedUser.status">
+                        <span>
+                            Status
+                        </span>
+                    </mat-checkbox>-->
                 </div>
             </div>
             <div fxLayoutAlign="center " fxLayoutGap="10px">
@@ -58,6 +65,5 @@
                 <button mat-stroked-button color="primary" type="submit"> Save </button>
             </div>
         </form>
-
     </div>
 </div>

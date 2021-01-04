@@ -12,12 +12,12 @@ const routes: Routes = [
   {
     path: '', component: DefaultComponent, children: [
       { path: '', component: DashboardComponent },
-      { path: 'posts', component: PostsComponent },
-      { path: 'users', component: UsersComponent },
-      { path: 'comments', component: CommentsComponent },
-      { path: 'adminsettings', component: AdminsettingsComponent }],
+      { path: 'Posts', component: PostsComponent },
+      { path: 'Users', component: UsersComponent },
+      { path: 'Comments', component: CommentsComponent },
+      { path: 'AdminSettings', component: AdminsettingsComponent }],
   },
-  { path: 'adminlogin', component: LoginComponent }
+  { path: 'AdminLogin', component: LoginComponent }
 
 ];
 

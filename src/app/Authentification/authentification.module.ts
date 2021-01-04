@@ -10,6 +10,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RouterModule } from '@angular/router';
     FlexLayoutModule,
     MatCardModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatTooltipModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthentificationModule { }

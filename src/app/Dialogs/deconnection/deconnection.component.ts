@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from 'src/app/Services/authentification.service';
 
 @Component({
   selector: 'app-deconnection',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeconnectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public AuthService: AuthentificationService) { }
 
   ngOnInit(): void {
   }

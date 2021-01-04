@@ -16,4 +16,13 @@ export class AdminserviceService {
   getAdmin() {
     return this.http.get(this.baseURL)
   }
+
+  putAdmin(admin: Admin) {
+    return this.http.patch(this.baseURL + `/${admin._id}`, admin)
+  }
+  /*
+  getOneAdmin(admin: Admin) {
+    return this.http.get(this.baseURL + `/${admin._id}`)
+  }
+  */
 }

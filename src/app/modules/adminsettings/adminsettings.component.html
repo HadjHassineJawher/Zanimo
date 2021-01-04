@@ -1,1 +1,99 @@
-<p>adminsettings works!</p>
+<mat-card *ngFor="let admin of Adminservice.Admin">
+    <div fxLayout="column" fxLayoutAlign="center center" class="imageuser">
+        <div>
+            <img src="{{admin.image}}" alt="Admin Picture">
+        </div>
+    </div>
+    <div fxLayoutAlign="center center">
+        <div class="box" fxLayoutGap="10px" fxLayoutAlign="center center">
+            <form fxFlex="50" fxLayoutAlign="stretch" fxLayout="column">
+
+                <mat-form-field appearance="outline">
+                    <mat-label> First Name </mat-label>
+                    <input disabled matInput placeholder="Your name" value="{{admin.nom}}" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label> Last Name </mat-label>
+                    <input disabled matInput placeholder="Your name" value="{{admin.prenom}}" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label> E-mail </mat-label>
+                    <input disabled matInput placeholder="Your name" value="{{admin.mail}}" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label> Number </mat-label>
+                    <input disabled matInput placeholder="Your name" value="{{admin.numtel}}" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label> Password </mat-label>
+                    <input disabled matInput placeholder="Your name" value="{{admin.motdepasse}}"
+                        [type]="hide ? 'password' : 'text'" />
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div fxLayoutAlign="stretch" fxLayout="column">
+                    <button mat-stroked-button color="warn" (click)=" UpdateAdmin(admin)">Modifie</button>
+                </div>
+            </form>
+
+            <form fxFlex="50" fxLayoutAlign="stretch" fxLayout="column" #Adminform="ngForm"
+                (ngSubmit)="onSubmit(Adminform)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="Adminservice.SelectedAdmin._id">
+                <mat-form-field appearance="outline">
+                    <mat-label> First Name </mat-label>
+                    <input matInput placeholder="Your name" name="nom" #nom="ngModel"
+                        [(ngModel)]="Adminservice.SelectedAdmin.nom" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Last Name </mat-label>
+                    <input matInput placeholder="Your prenom" name="prenom" #prenom="ngModel"
+                        [(ngModel)]="Adminservice.SelectedAdmin.prenom" />
+                </mat-form-field>
+
+                <input type="hidden" value="{{admin.image}}" name="image" #image="ngModel"
+                    [(ngModel)]="Adminservice.SelectedAdmin.image">
+
+                <!--  <mat-form-field appearance="outline">
+                    <mat-label> Image </mat-label>
+                    <input matInput placeholder="Your Image" name="image" #image="ngModel"
+                        [(ngModel)]="Adminservice.SelectedAdmin.image" />
+                </mat-form-field>  -->
+
+                <mat-form-field appearance="outline">
+                    <mat-label> E-mail </mat-label>
+                    <input matInput placeholder="Your mail" name="mail" #mail="ngModel"
+                        [(ngModel)]="Adminservice.SelectedAdmin.mail" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Phone Number </mat-label>
+                    <input matInput placeholder="Your phone" name="numtel" #numtel="ngModel"
+                        [(ngModel)]="Adminservice.SelectedAdmin.numtel" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> PassWord </mat-label>
+                    <input matInput placeholder="Your password" name="motdepasse" #motdepasse="ngModel"
+                        [(ngModel)]="Adminservice.SelectedAdmin.motdepasse" />
+                </mat-form-field>
+
+                <div fxLayoutAlign="stretch" fxLayoutAlign="center" fxLayoutGap=" 10px">
+                    <div fxFlex="50" fxLayout="column">
+                        <button mat-stroked-button color="warn" (click)="resetdata()">
+                            Cancel
+                        </button>
+                    </div>
+                    <div fxFlex="50" fxLayout="column">
+                        <button mat-stroked-button color="primary" type="submit">
+                            Apply Changes
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</mat-card>

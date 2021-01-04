@@ -1,1 +1,47 @@
-<p>postsinfo works!</p>
+<div *ngFor="let Post of Userservice.Selectedpost">
+    <div fxLayoutAlign="center center">
+        <h1> All Post Information </h1><br>
+    </div>
+    <div fxLayoutAlign="center center">
+        <div class="box" fxLayoutGap="10px" fxFlex>
+            <form fxLayoutAlign="center center " fxLayoutAlign="stretch" fxLayout="column">
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Post's Type </mat-label>
+                    <input disabled matInput placeholder="Post's Phone" value="{{Post.typeAnnonce}}" />
+                    <mat-icon matSuffix color="primary">search</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Date </mat-label>
+                    <input disabled matInput placeholder="Post's Date" value="{{Post.date}}" />
+                    <mat-icon matSuffix color="primary">event</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Expiration Date </mat-label>
+                    <input disabled matInput placeholder="Post'sE-Mail" value="{{Post.dateExpiration}}" />
+                    <mat-icon matSuffix color="primary">today</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Description </mat-label>
+                    <input disabled matInput placeholder="Post'sLast Name" value="{{Post.description}}" />
+                    <mat-icon matSuffix color="primary">article </mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Animal's Type </mat-label>
+                    <input disabled matInput placeholder="Post's Phone" value="{{Post.typeAnimale}}" />
+                    <mat-icon matSuffix color="primary">description</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label> Animal's Gender </mat-label>
+                    <input disabled matInput placeholder="Post's Phone" value="{{Post.genreAnimale}}" />
+                    <mat-icon matSuffix color="primary">pets</mat-icon>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+</div>
