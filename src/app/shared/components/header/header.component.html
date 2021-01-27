@@ -9,7 +9,7 @@
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>
-                    <button mat-button [matMenuTriggerFor]="menu" #tooltip="matTooltip" matTooltip="Menu">
+                    <button name="Person" mat-button [matMenuTriggerFor]="menu" #tooltip="matTooltip" matTooltip="Menu">
                         <mat-icon> person </mat-icon>
                     </button>
 
@@ -20,7 +20,8 @@
                             Settings
                         </button>
 
-                        <button mat-menu-item #tooltip="matTooltip" matTooltip="Log Out" (click)="opendialog()">
+                        <button name="Exit" mat-menu-item #tooltip="matTooltip" matTooltip="Log Out"
+                            (click)="opendialog()">
                             <mat-icon> exit_to_app </mat-icon>
                             Sign Out
                         </button>

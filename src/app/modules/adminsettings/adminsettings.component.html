@@ -34,7 +34,8 @@
                     </button>
                 </mat-form-field>
                 <div fxLayoutAlign="stretch" fxLayout="column">
-                    <button mat-stroked-button color="warn" (click)=" UpdateAdmin(admin)">Modifie</button>
+                    <button name="Modifie" mat-stroked-button color="warn"
+                        (click)=" UpdateAdmin(admin)">Modifie</button>
                 </div>
             </form>
 
@@ -76,18 +77,18 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label> PassWord </mat-label>
-                    <input matInput placeholder="Your password" name="motdepasse" #motdepasse="ngModel"
+                    <input type="password" matInput placeholder="Your password" name="motdepasse" #motdepasse="ngModel"
                         [(ngModel)]="Adminservice.SelectedAdmin.motdepasse" />
                 </mat-form-field>
 
                 <div fxLayoutAlign="stretch" fxLayoutAlign="center" fxLayoutGap=" 10px">
                     <div fxFlex="50" fxLayout="column">
-                        <button mat-stroked-button color="warn" (click)="resetdata()">
+                        <button name="Cancel" mat-stroked-button color="warn" (click)="resetdata()">
                             Cancel
                         </button>
                     </div>
                     <div fxFlex="50" fxLayout="column">
-                        <button mat-stroked-button color="primary" type="submit">
+                        <button name="Apply" mat-stroked-button color="primary" type="submit">
                             Apply Changes
                         </button>
                     </div>

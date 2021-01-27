@@ -16,6 +16,13 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userlist();
+    this.refreshCards();
+  }
+
+  refreshCards() {
+    this.Userservice.getUsers().subscribe((res) => {
+      this.Userservice.User = res as Users[];
+    })
   }
 
   userlist() {
@@ -42,6 +49,7 @@ export class PostsComponent implements OnInit {
   DeletePost(user: Users, postid) {
     this.Userservice.DeletePost(user, postid).subscribe((res) => {
       this.openSnackBarfordeletepost();
+      this.refreshCards();
       console.log("Posts deleted successfully");
     })
   }
